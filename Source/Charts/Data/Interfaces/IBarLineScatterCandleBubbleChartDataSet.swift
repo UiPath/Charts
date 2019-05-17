@@ -15,6 +15,7 @@ import CoreGraphics
 @objc
 public protocol IBarLineScatterCandleBubbleChartDataSet: IChartDataSet
 {
+
     // MARK: - Data functions and accessors
     
     // MARK: - Styling functions and accessors

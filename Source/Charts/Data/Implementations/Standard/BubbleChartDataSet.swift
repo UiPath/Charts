@@ -15,6 +15,7 @@ import CoreGraphics
 
 open class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBubbleChartDataSet
 {
+
     // MARK: - Data functions and accessors
     
     internal var _maxSize = CGFloat(0.0)
@@ -45,13 +46,12 @@ open class BubbleChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBubbleCh
     
     // MARK: - NSCopying
     
-    open override func copy(with zone: NSZone? = nil) -> Any
+    open override func copyWithZone(_ zone: NSZone?) -> AnyObject
     {
-        let copy = super.copy(with: zone) as! BubbleChartDataSet
+        let copy = super.copyWithZone(zone) as! BubbleChartDataSet
         copy._xMin = _xMin
         copy._xMax = _xMax
         copy._maxSize = _maxSize
-        copy.normalizeSizeEnabled = normalizeSizeEnabled
         copy.highlightCircleWidth = highlightCircleWidth
         return copy
     }

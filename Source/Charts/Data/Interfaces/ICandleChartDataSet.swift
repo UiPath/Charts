@@ -15,6 +15,7 @@ import CoreGraphics
 @objc
 public protocol ICandleChartDataSet: ILineScatterCandleRadarChartDataSet
 {
+
     // MARK: - Data functions and accessors
     
     // MARK: - Styling functions and accessors

@@ -33,9 +33,9 @@ open class PieChartDataSet: ChartDataSet, IPieChartDataSet
         initialize()
     }
 
-    public override init(entries: [ChartDataEntry]?, label: String?)
+    public override init(values: [ChartDataEntry]?, label: String?)
     {
-        super.init(entries: entries, label: label)
+        super.init(values: values, label: label)
         initialize()
     }
 
@@ -84,9 +84,6 @@ open class PieChartDataSet: ChartDataSet, IPieChartDataSet
     /// When valuePosition is OutsideSlice, indicates line color
     open var valueLineColor: NSUIColor? = NSUIColor.black
 
-    /// When valuePosition is OutsideSlice and enabled, line will have the same color as the slice
-    open var useValueColorForLine: Bool = false
-
     /// When valuePosition is OutsideSlice, indicates line width
     open var valueLineWidth: CGFloat = 1.0
 
@@ -113,22 +110,11 @@ open class PieChartDataSet: ChartDataSet, IPieChartDataSet
 
     // MARK: - NSCopying
 
-    open override func copy(with zone: NSZone? = nil) -> Any
+    open override func copyWithZone(_ zone: NSZone?) -> AnyObject
     {
-        let copy = super.copy(with: zone) as! PieChartDataSet
+        let copy = super.copyWithZone(zone) as! PieChartDataSet
         copy._sliceSpace = _sliceSpace
-        copy.automaticallyDisableSliceSpacing = automaticallyDisableSliceSpacing
         copy.selectionShift = selectionShift
-        copy.xValuePosition = xValuePosition
-        copy.yValuePosition = yValuePosition
-        copy.valueLineColor = valueLineColor
-        copy.valueLineWidth = valueLineWidth
-        copy.valueLinePart1OffsetPercentage = valueLinePart1OffsetPercentage
-        copy.valueLinePart1Length = valueLinePart1Length
-        copy.valueLinePart2Length = valueLinePart2Length
-        copy.valueLineVariableLength = valueLineVariableLength
-        copy.entryLabelFont = entryLabelFont
-        copy.entryLabelColor = entryLabelColor
         copy.highlightColor = highlightColor
         return copy
     }

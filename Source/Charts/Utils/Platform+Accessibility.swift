@@ -83,8 +83,7 @@ extension NSUIView
     open override func index(ofAccessibilityElement element: Any) -> Int
     {
         guard let axElement = element as? NSUIAccessibilityElement else { return NSNotFound }
-        return (accessibilityChildren() as? [NSUIAccessibilityElement])?
-            .firstIndex(of: axElement) ?? NSNotFound
+        return (accessibilityChildren() as? [NSUIAccessibilityElement])?.index(of: axElement) ?? NSNotFound
     }
 }
 
@@ -180,7 +179,7 @@ open class NSUIAccessibilityElement: NSAccessibilityElement
     }
 }
 
-/// - Note: setAccessibilityRole(.list) is called at init. See Platform.swift.
+/// NOTE: setAccessibilityRole(.list) is called at init. See Platform.swift.
 extension NSUIView: NSAccessibilityGroup
 {
     open override func accessibilityLabel() -> String?

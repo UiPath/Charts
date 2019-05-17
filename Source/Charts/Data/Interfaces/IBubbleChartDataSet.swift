@@ -15,6 +15,7 @@ import CoreGraphics
 @objc
 public protocol IBubbleChartDataSet: IBarLineScatterCandleBubbleChartDataSet
 {
+
     // MARK: - Data functions and accessors
     
     var maxSize: CGFloat { get }
